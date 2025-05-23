@@ -11,7 +11,7 @@ public class Heal : MonoBehaviour
         {
             Life_Controller playerlife = collision.GetComponent<Life_Controller>();
             playerlife.TakeHealt(hlt);
-
+            Destroy(gameObject);
         }
     }
 }

@@ -11,6 +11,7 @@ public class Bomb : MonoBehaviour
         {
             Life_Controller playerlife = collision.GetComponent<Life_Controller>();
             playerlife.TakeDamage( dmg);
+            Destroy(gameObject);
 
         }
     }
