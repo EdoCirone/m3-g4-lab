@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Lava_Ground : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    int dmg = 2;
+    private void OnTriggerStay(Collider collision)
     {
-        
+        if (collision.CompareTag("Player"))
+        {
+            Life_Controller playerlife = collision.GetComponent<Life_Controller>();
+            playerlife.TakeDamage(dmg);
+            Debug.Log($"sto sulla lava!! ho subito {dmg} danni");
+
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

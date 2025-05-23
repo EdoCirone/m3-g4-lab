@@ -12,7 +12,6 @@ public class Life_Controller : MonoBehaviour
 
     bool isDead = false;
 
-
     private void Awake()
     {
         health = maxHealth;
