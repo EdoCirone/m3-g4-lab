@@ -7,6 +7,8 @@ public class SpawCoin : MonoBehaviour
     [SerializeField] float mindis = 3;
     [SerializeField] int coinNumbers = 10;
     [SerializeField] int spawnRange = 10;
+    int maxTentativi;
+    int i;
     [SerializeField] GameObject coinPrefab;
     [SerializeField] List<GameObject> coinList;
 
@@ -14,12 +16,13 @@ public class SpawCoin : MonoBehaviour
     {
 
         SpawnCoin();
+
     }
 
     private void SpawnCoin()
     {
 
-        for (int i = 0; i <= coinNumbers; i++)
+        while ( i < coinNumbers && maxTentativi < 100)
         {
             Vector2 spawnPosition = new Vector2(Random.Range(-spawnRange, spawnRange), Random.Range(-spawnRange, spawnRange));
 
@@ -28,11 +31,32 @@ public class SpawCoin : MonoBehaviour
 
                 GameObject coin = Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
                 coinList.Add(coin);
-
+                i++;
             }
 
+            maxTentativi++;
 
+            if (maxTentativi == 100)
+            {
+                Debug.Log("C'abbiamo provato!");
+            }
         }
+
+
+        //for (int i = 0; i <= coinNumbers; i++)
+        //{
+        //    Vector2 spawnPosition = new Vector2(Random.Range(-spawnRange, spawnRange), Random.Range(-spawnRange, spawnRange));
+
+        //    if (AcceptableCoin(spawnPosition))
+        //    {
+
+        //        GameObject coin = Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
+        //        coinList.Add(coin);
+
+        //    }
+
+
+        //}
 
 
     }
