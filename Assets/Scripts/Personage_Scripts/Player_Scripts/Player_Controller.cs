@@ -9,6 +9,13 @@ public class Player_Controller : MonoBehaviour
     float h;
     float v;
 
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+   public void SetSpeed(float speed)
+    { this.speed = speed; }
 
     // Start is called before the first frame update
     void Start()
