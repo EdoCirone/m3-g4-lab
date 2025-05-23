@@ -19,7 +19,7 @@ public class SpawCoin : MonoBehaviour
     private void SpawnCoin()
     {
 
-        for (int i = 0; i < coinNumbers; i++)
+        for (int i = 0; i <= coinNumbers; i++)
         {
             Vector2 spawnPosition = new Vector2(Random.Range(-spawnRange, spawnRange), Random.Range(-spawnRange, spawnRange));
 
@@ -32,9 +32,6 @@ public class SpawCoin : MonoBehaviour
             }
 
 
-
-
-
         }
 
 
@@ -42,8 +39,6 @@ public class SpawCoin : MonoBehaviour
 
     bool AcceptableCoin(Vector2 spawnPosition)
     {
-
-        
 
         foreach (GameObject precedentcoin in coinList)
 
@@ -58,7 +53,6 @@ public class SpawCoin : MonoBehaviour
             }
 
 
-           
         }
 
         return true;
