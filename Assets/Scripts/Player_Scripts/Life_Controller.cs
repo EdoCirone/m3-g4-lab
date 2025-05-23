@@ -7,8 +7,15 @@ public class Life_Controller : MonoBehaviour
 
     int health = 100;
     [SerializeField] int maxHealth = 100;
+    public int CurrentHealth => health;
+    public int MaxHealth => maxHealth;
 
-   private bool CheckDeath()
+    private void Awake()
+    {
+        health = maxHealth;
+    }
+
+    private bool CheckDeath()
     {
         if (health <= 0)
         {
@@ -25,23 +32,33 @@ public class Life_Controller : MonoBehaviour
 
     }
 
-    public void TakeDamage(int ammount)
+    public void TakeDamage(int amount)
     {
 
-        health -= ammount;
-        Debug.Log($"Ho subito {ammount} danni, ora la mia vita è {health}");
+        health -= amount;
+        Debug.Log($"Ho subito {amount} danni, ora la mia vita è {health}");
         CheckDeath();
 
     }
 
- 
 
-    public void TakeHealt(int ammount)
+
+    public void TakeHeal(int amount)
     {
 
-        health += ammount;
-        health = Mathf.Min(maxHealth, health);
-        Debug.Log($"Mi sono curato di {ammount} ora la mia vita è {health}");
+
+        if (health != maxHealth)
+        {
+            int previousHealth = health;
+            health = Mathf.Min(health + amount, maxHealth);
+            int effectiveamount = health - previousHealth;
+            Debug.Log($"Mi sono curato di {effectiveamount} ora la mia vita è {health}");
+        }
+        else
+        {
+            Debug.Log("La tua vita è già al massimo");
+        }
+
 
     }
 
@@ -50,15 +67,4 @@ public class Life_Controller : MonoBehaviour
         return Mathf.Clamp01((float)health / maxHealth);
     }
 
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 }

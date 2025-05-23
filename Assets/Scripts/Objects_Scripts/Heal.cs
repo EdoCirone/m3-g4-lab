@@ -5,13 +5,22 @@ using UnityEngine;
 public class Heal : MonoBehaviour
 {
     [SerializeField] int hlt = 10;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Life_Controller playerlife = collision.GetComponent<Life_Controller>();
-            playerlife.TakeHealt(hlt);
-            Destroy(gameObject);
+            
+            Life_Controller playerlife = other.GetComponent<Life_Controller>();
+            
+            if ( playerlife.CurrentHealth < playerlife.MaxHealth )
+            {
+
+                playerlife.TakeHeal(hlt);
+                Destroy(gameObject);
+
+            }
+            
+
         }
     }
 }
