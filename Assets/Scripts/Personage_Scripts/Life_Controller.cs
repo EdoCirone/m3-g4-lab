@@ -10,6 +10,9 @@ public class Life_Controller : MonoBehaviour
     public int CurrentHealth => health;
     public int MaxHealth => maxHealth;
 
+    bool isDead = false;
+
+
     private void Awake()
     {
         health = maxHealth;
@@ -17,8 +20,9 @@ public class Life_Controller : MonoBehaviour
 
     private bool CheckDeath()
     {
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
+            isDead = true;
             Destroy(gameObject);
             Debug.Log("il giocatore è stato  sconfitto");
             return true;
@@ -28,16 +32,20 @@ public class Life_Controller : MonoBehaviour
         {
             return false;
         }
-        
+
 
     }
 
     public void TakeDamage(int amount)
     {
 
-        health -= amount;
-        Debug.Log($"Ho subito {amount} danni, ora la mia vita è {health}");
-        CheckDeath();
+        if (!isDead && amount >= 0)
+        {
+
+            health -= amount;
+            Debug.Log($"Ho subito {amount} danni, ora la mia vita è {health}");
+            CheckDeath();
+        }
 
     }
 
@@ -47,12 +55,12 @@ public class Life_Controller : MonoBehaviour
     {
 
 
-        if (health != maxHealth)
+        if (!isDead && amount > 0 && health < maxHealth)
         {
             int previousHealth = health;
             health = Mathf.Min(health + amount, maxHealth);
-            int effectiveamount = health - previousHealth;
-            Debug.Log($"Mi sono curato di {effectiveamount} ora la mia vita è {health}");
+            int effectiveAmount = health - previousHealth;
+            Debug.Log($"Mi sono curato di {effectiveAmount} ora la mia vita è {health}");
         }
         else
         {

@@ -11,15 +11,13 @@ public class Heal : MonoBehaviour
         {
             
             Life_Controller playerlife = other.GetComponent<Life_Controller>();
-            
+            playerlife.TakeHeal(hlt);
+
             if ( playerlife.CurrentHealth < playerlife.MaxHealth )
             {
-
-                playerlife.TakeHeal(hlt);
                 Destroy(gameObject);
-
             }
-            
+ 
 
         }
     }
