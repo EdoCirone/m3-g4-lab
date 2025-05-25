@@ -26,9 +26,14 @@ public class Zombie_movement : MonoBehaviour
     }
     public void followPlayer()
     {
+        if (_player != null)
+        {
+            
+               _mover.Setdirection(_player.transform.position - transform.position);
 
-        _mover.Setdirection(_player.transform.position - transform.position);
+        }
 
+     
     }
 
 }

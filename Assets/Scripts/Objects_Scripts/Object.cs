@@ -5,4 +5,7 @@ using UnityEngine;
 public abstract class Object : MonoBehaviour
 {
      Life_Controller playerlife;
+
+     public abstract void OnTriggerEnter2D(Collider2D other);
+
 }

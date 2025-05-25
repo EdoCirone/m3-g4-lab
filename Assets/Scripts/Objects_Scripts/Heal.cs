@@ -5,7 +5,7 @@ using UnityEngine;
 public class Heal : Object
 {
     [SerializeField] int hlt = 10;
-    private void OnTriggerEnter2D(Collider2D other)
+    public override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
