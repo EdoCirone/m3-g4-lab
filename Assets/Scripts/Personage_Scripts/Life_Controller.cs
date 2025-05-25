@@ -46,7 +46,7 @@ public class Life_Controller : MonoBehaviour
             CheckDeath();
         }
         else{
-            Debug.Log("Sei già morto, inutile accanirsi");
+            Debug.Log("Sei già morto");
         }
 
     }

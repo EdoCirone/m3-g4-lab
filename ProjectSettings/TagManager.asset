@@ -8,6 +8,8 @@ TagManager:
   - Bomb
   - Heal
   - Zombie
+  - Button
+  - Rock
   layers:
   - Default
   - TransparentFX

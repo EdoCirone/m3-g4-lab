@@ -111,7 +111,10 @@ GameObject:
   - component: {fileID: 1549622607130882905}
   - component: {fileID: 2943657191001363949}
   - component: {fileID: 7339532656215886921}
+  - component: {fileID: 2364709644941270304}
   - component: {fileID: 1214449331913785008}
+  - component: {fileID: 2249027076204117684}
+  - component: {fileID: 2348247619843589927}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Zombie
@@ -259,6 +262,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2364709644941270304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216790873881404086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeca1ba9e2ddc7a4c95bf7b7c31d931c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
 --- !u!114 &1214449331913785008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,3 +288,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+--- !u!114 &2249027076204117684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216790873881404086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb62e94a63ccdd4a9da26fd339a5aa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2348247619843589927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216790873881404086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0ded351f5df1943ba042b21768fcd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 2
