@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-    Rigidbody2D _rb;
-    [SerializeField]float speed = 5;
+    // Rigidbody2D _rb;
+    // [SerializeField]float speed = 5;
     float h;
     float v;
 
-    public float GetSpeed()
-    {
-        return speed;
-    }
 
-   public void SetSpeed(float speed)
-    { this.speed = speed; }
+    Vector2 _dir;
+
+    TopDownMover _mover;
+
+//     public float GetSpeed()
+//     {
+//         return speed;
+//     }
+
+//    public void SetSpeed(float speed)
+//     { this.speed = speed; }
 
     // Start is called before the first frame update
     void Start()
     {
 
-        _rb = GetComponent<Rigidbody2D>();
+        // _rb = GetComponent<Rigidbody2D>();
+        _mover = GetComponent<TopDownMover>();
         
     }
 
@@ -30,20 +36,25 @@ public class Player_Controller : MonoBehaviour
         h = Input.GetAxis("Horizontal");
         v = Input.GetAxis("Vertical");
 
+         _dir = new Vector2(h, v);
+        _mover.Setdirection( _dir);
+
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
+//     void FixedUpdate()
+//     {
 
-        Vector2 movement = new Vector2(h, v);
+       
 
-        if (movement.sqrMagnitude > 1)
-        {
-            movement = movement.normalized;
-        }
+//         // Vector2 movement = new Vector2(h, v);
 
-        _rb.velocity =  movement * speed;
+//         // if (movement.sqrMagnitude > 1)
+//         // {
+//         //     movement = movement.normalized;
+//         // }
 
-    }
-}
+//         // _rb.velocity =  movement * speed;
+
+//     }
+ }

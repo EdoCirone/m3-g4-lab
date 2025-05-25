@@ -10,10 +10,10 @@ public class Mud_Ground : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            originalspeed = collision.GetComponent<Player_Controller>().GetSpeed();
+            originalspeed = collision.GetComponent<TopDownMover>().GetSpeed();
             float speed = originalspeed;
             speed *= 0.5f;
-            collision.GetComponent<Player_Controller>().SetSpeed(speed);
+            collision.GetComponent<TopDownMover>().SetSpeed(speed);
         }
     }
 
@@ -22,7 +22,7 @@ public class Mud_Ground : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
 
-            collision.GetComponent<Player_Controller>().SetSpeed(originalspeed);
+            collision.GetComponent<TopDownMover>().SetSpeed(originalspeed);
 
         }
 

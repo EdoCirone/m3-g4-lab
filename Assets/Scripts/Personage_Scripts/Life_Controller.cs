@@ -17,13 +17,13 @@ public class Life_Controller : MonoBehaviour
         health = maxHealth;
     }
 
-    private bool CheckDeath()
+    public bool CheckDeath()
     {
         if (health <= 0 && !isDead)
         {
             isDead = true;
             Destroy(gameObject);
-            Debug.Log("il giocatore è stato  sconfitto");
+            Debug.Log("il giocatore ï¿½ stato  sconfitto");
             return true;
 
         }
@@ -42,8 +42,11 @@ public class Life_Controller : MonoBehaviour
         {
 
             health -= amount;
-            Debug.Log($"Ho subito {amount} danni, ora la mia vita è {health}");
+            Debug.Log($"Ho subito {amount} danni, ora la mia vita ï¿½ {health}");
             CheckDeath();
+        }
+        else{
+            Debug.Log("Sei giÃ  morto, inutile accanirsi");
         }
 
     }
@@ -59,11 +62,11 @@ public class Life_Controller : MonoBehaviour
             int previousHealth = health;
             health = Mathf.Min(health + amount, maxHealth);
             int effectiveAmount = health - previousHealth;
-            Debug.Log($"Mi sono curato di {effectiveAmount} ora la mia vita è {health}");
+            Debug.Log($"Mi sono curato di {effectiveAmount} ora la mia vita ï¿½ {health}");
         }
         else
         {
-            Debug.Log("La tua vita è già al massimo");
+            Debug.Log("La tua vita ï¿½ giï¿½ al massimo");
         }
 
 
